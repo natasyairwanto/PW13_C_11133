@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Alert, Col, Container, Row, Spinner, Stack } from "react-bootstrap";
 import { GetAllContents } from "../api/apiContent";
 import { getThumbnail } from "../api";
+import { Link } from 'react-router-dom';
+
 const DashboardPage = () => {
     const [contents, setContents] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -52,6 +54,8 @@ const DashboardPage = () => {
                                         {content.title}
                                     </h5>
                                     <p className="card-text">{content.description}</p>
+                                    <Link to={`/user/content/komentar?id=${content.id}`} className="btn btn-primary w-100">Comment</Link>
+                                    {/* <button className="btn btn-primary w-100">Comment</button> */}
                                 </div>
                             </div>
                         </Col>
